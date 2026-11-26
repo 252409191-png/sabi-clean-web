@@ -2,7 +2,7 @@
 from flask import Flask, render_template
 from pathlib import Path
 
-app = Flask(__name__, template_folder=str(Path(__file__).resolve().parent / "static" / "templates"))
+app = Flask(__name__, template_folder=str(Path(__file__).resolve().parent / "templates"))
 
 @app.route("/")
 def inicio():
