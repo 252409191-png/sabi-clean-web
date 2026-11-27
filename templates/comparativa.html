@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Comparativa | SABICLEAN{% endblock %}
+{% block content %}
+<section class="page-hero"><div class="container"><span class="eyebrow">Análisis de productos</span><h1>Comparativa</h1><p>Observaciones iniciales del equipo y datos pendientes para una comparación justa.</p></div></section>
+<section class="section"><div class="container">
+    <div class="notice"><strong>Marca comercial pendiente:</strong> en los datos enviados aparece SABICLEAN como marca para comparar, pero SABICLEAN es el producto del equipo. Hace falta escribir el nombre de una marca comercial externa.</div>
+    <div class="table-wrap">
+        <table>
+            <thead><tr><th>Aspecto</th><th>SABICLEAN</th><th>Detergente comercial (marca pendiente)</th></tr></thead>
+            <tbody>
+                <tr><th>Tipo de producto</th><td>{{ producto.descripcion }}</td><td>Pendiente</td></tr>
+                <tr><th>Ventajas u observaciones</th><td>El equipo señala que limpia rápido y quita las manchas.</td><td>Pendiente de investigar</td></tr>
+                <tr><th>Desventajas u observaciones</th><td>Pendiente de registrar observaciones.</td><td>El equipo observa que hace poca espuma y que su olor fuerte no permanece.</td></tr>
+                <tr><th>Ingredientes</th><td>Consultar la receta en la sección Elaboración.</td><td>Pendiente de investigar en la etiqueta del producto.</td></tr>
+                <tr><th>Precio</th><td>Pendiente de confirmar el costo real.</td><td>Pendiente</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <p class="small muted">{{ producto.comparacion.observaciones }}</p>
+</div></section>
+{% endblock %}

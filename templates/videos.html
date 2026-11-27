@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Videos | SABICLEAN{% endblock %}
+{% block content %}
+<section class="page-hero"><div class="container"><span class="eyebrow">Conoce el proceso</span><h1>Videos</h1><p>Material audiovisual del proyecto SABICLEAN.</p></div></section>
+<section class="section"><div class="container card-grid two">
+    <article class="content-panel">
+        <h2>Proceso de elaboración</h2>
+        {% if archivos.elaboracion %}
+            <video controls preload="metadata"><source src="{{ url_for('static', filename='videos/elaboracion.mp4') }}" type="video/mp4">Tu navegador no puede reproducir este video.</video>
+        {% else %}
+            <div class="video-placeholder">▶<span>Agrega elaboracion.mp4 en static/videos/</span></div>
+        {% endif %}
+        <p class="small muted">Video del procedimiento realizado por el equipo.</p>
+    </article>
+    <article class="content-panel">
+        <h2>Cómo utilizar el detergente</h2>
+        {% if archivos.uso %}
+            <video controls preload="metadata"><source src="{{ url_for('static', filename='videos/uso_detergente.mp4') }}" type="video/mp4">Tu navegador no puede reproducir este video.</video>
+        {% else %}
+            <div class="video-placeholder">▶<span>Agrega uso_detergente.mp4 en static/videos/</span></div>
+        {% endif %}
+        <p class="small muted">Video explicativo sobre el uso del producto.</p>
+    </article>
+</div></section>
+{% endblock %}

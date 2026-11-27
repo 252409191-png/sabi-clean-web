@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Investigación | SABICLEAN{% endblock %}
+{% block content %}
+<section class="page-hero"><div class="container"><span class="eyebrow">Conocimiento y ambiente</span><h1>Investigación</h1><p>Información recopilada por el equipo sobre jabones y detergentes biodegradables.</p></div></section>
+<section class="section"><div class="container narrow">
+    <div class="content-panel">
+        <h2>Investigación sobre detergentes orgánicos</h2>
+        <p>{{ producto.investigacion }}</p>
+        <p class="small muted">Texto proporcionado por el equipo para el proyecto.</p>
+    </div>
+    <div class="content-panel">
+        <h2>Aspectos que deben comprobarse</h2>
+        <p>Las afirmaciones sobre biodegradabilidad, tiempo de degradación, pH, desinfección y cuidado de la piel necesitan fuentes confiables o pruebas realizadas bajo supervisión. No deben presentarse como resultados comprobados si el equipo no cuenta con evidencia.</p>
+        <ul class="check-list">
+            <li>Agregar las fuentes consultadas sobre los ingredientes.</li>
+            <li>Explicar qué significa biodegradable y cómo se comprobó en este producto.</li>
+            <li>Incluir resultados de laboratorio solamente si realmente se realizaron.</li>
+        </ul>
+    </div>
+</div></section>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Contacto | SABICLEAN{% endblock %}
+{% block content %}
+<section class="page-hero"><div class="container"><span class="eyebrow">Estamos para compartir</span><h1>Contacto</h1><p>Formulario demostrativo del proyecto escolar.</p></div></section>
+<section class="section"><div class="container contact-layout">
+    <div><h2>Equipo SABICLEAN</h2><p>CECyTEJ 24 Ixtapa · Grupo 3-E</p><ul class="team-list dark">{% for integrante in equipo.integrantes %}<li>{{ integrante }}</li>{% endfor %}</ul><p class="small muted">Este formulario no envía correos; solamente muestra una confirmación en pantalla.</p></div>
+    <form class="contact-form" method="POST" action="{{ url_for('contacto') }}">
+        <label for="nombre">Nombre</label><input id="nombre" name="nombre" required>
+        <label for="correo">Correo</label><input id="correo" name="correo" type="email" required>
+        <label for="asunto">Asunto</label><input id="asunto" name="asunto" required>
+        <label for="mensaje">Mensaje</label><textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+        <button class="button" type="submit">Enviar mensaje</button>
+        {% if mensaje %}<p class="form-message" role="status">{{ mensaje }}</p>{% endif %}
+    </form>
+</div></section>
+{% endblock %}

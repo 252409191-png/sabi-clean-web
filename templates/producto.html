@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Producto | SABICLEAN{% endblock %}
+{% block content %}
+<section class="page-hero"><div class="container"><span class="eyebrow">Nuestra presentación</span><h1>El producto</h1><p>{{ producto.descripcion }}</p></div></section>
+<section class="section"><div class="container">
+    <div class="product-intro">
+        <div><span class="eyebrow">Marca comercial</span><h2>{{ producto.nombre }}</h2><p>{{ equipo.eslogan }}</p></div>
+        <div class="tag">Jabón biodegradable para pisos</div>
+    </div>
+    <div class="gallery-grid">
+        {% for key, title, filename in [('logo','Logotipo','img/logotipo.png'),('etiqueta','Diseño de etiqueta','img/etiqueta.png'),('envase','Fotografía del envase','img/envase.jpg'),('producto','Producto terminado','img/producto.jpg')] %}
+        <article class="gallery-card">
+            {% if archivos[key] %}
+                <img src="{{ url_for('static', filename=filename) }}" alt="{{ title }}">
+            {% else %}
+                <div class="image-placeholder"><span>📷</span><strong>{{ title }}</strong><small>Agrega el archivo en static/{{ filename }}</small></div>
+            {% endif %}
+            <h3>{{ title }}</h3>
+        </article>
+        {% endfor %}
+    </div>
+    <div class="content-panel specs">
+        <h2>Características técnicas del envase</h2>
+        <div class="spec-grid">
+            {% for nombre, valor in producto.envase.items() %}
+            <div class="spec-item"><span>{{ nombre|capitalize }}</span><strong>{{ valor }}</strong></div>
+            {% endfor %}
+        </div>
+        <p class="small muted">La masa de 20 a 25 g debe confirmarse: verifica si corresponde únicamente al envase vacío.</p>
+        <h3>Datos de la receta pendientes de comprobar</h3>
+        <ul>{% for dato in producto.datos_declarados_pendientes_verificacion %}<li>{{ dato }}</li>{% endfor %}</ul>
+    </div>
+</div></section>
+{% endblock %}

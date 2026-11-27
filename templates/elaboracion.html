@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Elaboración | SABICLEAN{% endblock %}
+{% block content %}
+<section class="page-hero"><div class="container"><span class="eyebrow">Del laboratorio al producto</span><h1>Elaboración</h1><p>Ingredientes y procedimiento transcritos de la receta compartida por el equipo.</p></div></section>
+<section class="section"><div class="container content-grid">
+    <div class="content-panel">
+        <h2>Ingredientes y cantidades</h2>
+        <ul>{% for ingrediente in producto.ingredientes %}<li>{{ ingrediente }}</li>{% endfor %}</ul>
+        <div class="notice"><strong>Revisión necesaria:</strong> la receta menciona como alternativa alcohol de farmacia o un limpiador comercial. No se deben mezclar productos de limpieza. Consulten al docente antes de preparar o modificar la fórmula.</div>
+    </div>
+    <div class="content-panel">
+        <h2>Procedimiento</h2>
+        <ol class="steps">{% for paso in producto.procedimiento %}<li>{{ paso }}</li>{% endfor %}</ol>
+        <p class="small muted">La receta indica un tiempo aproximado de 20 minutos. El equipo debe confirmar el procedimiento final que realmente realizó.</p>
+    </div>
+</div>
+<div class="container">
+    <div class="content-panel">
+        <h2>Dosis indicada en la receta</h2>
+        <p>{{ producto.dosis }}</p>
+    </div>
+    <div class="notice"><strong>Importante:</strong> las cantidades y afirmaciones de rendimiento de la receta deben revisarse. La suma de los volúmenes de agua y otros líquidos no demuestra por sí sola que el producto final sea exactamente de 1000 ml.</div>
+</div>
+</section>
+{% endblock %}
