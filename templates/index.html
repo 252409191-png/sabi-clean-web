@@ -1,1 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Inicio | SABICLEAN{% endblock %}
+{% block content %}
+<section class="hero">
+    <div class="container hero-grid">
+        <div class="hero-copy">
+            <span class="eyebrow">Proyecto escolar · CECyTEJ 24 Ixtapa</span>
+            <h1>Limpieza que inspira, <em>naturaleza que respira.</em></h1>
+            <p class="lead">Conoce SABICLEAN, un proyecto estudiantil que presenta una propuesta de jabón biodegradable para pisos.</p>
+            <div class="hero-actions">
+                <a class="button button-light" href="{{ url_for('ver_producto') }}">Conocer el producto</a>
+                <a class="text-link light-link" href="{{ url_for('investigacion') }}">Ver investigación →</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            {% if foto %}
+                <img src="{{ url_for('static', filename='img/producto.jpg') }}" alt="Producto SABICLEAN terminado">
+            {% else %}
+                <div class="image-placeholder"><span>🌿</span><strong>Fotografía del producto</strong><small>Agrega producto.jpg en static/img/</small></div>
+            {% endif %}
+            <div class="floating-label">SABICLEAN <small>Jabón para pisos</small></div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-heading">
+            <span class="eyebrow">Nuestra propuesta</span>
+            <h2>Conoce el proyecto</h2>
+            <p>Este sitio reúne la investigación, elaboración y características del producto desarrollado por el equipo.</p>
+        </div>
+        <div class="card-grid three">
+            <article class="info-card"><span class="card-icon">🌱</span><h3>Investigación</h3><p>Consulta la información recopilada sobre detergentes orgánicos y biodegradabilidad.</p><a href="{{ url_for('investigacion') }}">Leer más →</a></article>
+            <article class="info-card"><span class="card-icon">🧪</span><h3>Elaboración</h3><p>Revisa los ingredientes, cantidades y pasos de preparación cuando se agreguen los datos del equipo.</p><a href="{{ url_for('elaboracion') }}">Ver proceso →</a></article>
+            <article class="info-card"><span class="card-icon">♻️</span><h3>Producto</h3><p>Conoce la presentación, el envase y los elementos gráficos originales de SABICLEAN.</p><a href="{{ url_for('ver_producto') }}">Ver producto →</a></article>
+        </div>
+    </div>
+</section>
+
+<section class="team-band">
+    <div class="container team-band-inner">
+        <div><span class="eyebrow">El equipo</span><h2>Estudiantes de 3-E</h2></div>
+        <ul class="team-list">{% for integrante in equipo.integrantes %}<li>{{ integrante }}</li>{% endfor %}</ul>
+    </div>
+</section>
+{% endblock %}
 
